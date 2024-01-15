@@ -17,7 +17,7 @@ export default function Home() {
             Nome do evento
             </Text>
             <Text style={styles.eventDate}>
-                Sábado, 13 de janeiro de 2024
+            Sábado, 13 de janeiro de 2024
             </Text>
 
             <View style={styles.form}>
@@ -35,8 +35,9 @@ export default function Home() {
 
             </View>
 
-            <Participant/>
-            <Participant/>
+            <Participant name="Bacon"/>
+            <Participant name="Tomate"/>
+            <Participant name="Cebola"/>
 
         </View>
     )
