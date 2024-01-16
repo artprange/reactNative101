@@ -4,6 +4,7 @@ import {
 	TextInput,
 	TouchableOpacity,
 	ScrollView,
+	FlatList,
 } from "react-native";
 import { styles } from "./styles";
 import { Participant } from "../../components/Participant";
@@ -28,15 +29,11 @@ export default function Home() {
 		"Beef",
 		"Spinach",
 		"Garlic",
-		"Anchovies",
 		"Basil",
 		"Oregano",
 		"Parsley",
 		"Pesto",
-		"Artichokes",
-		"Eggplant",
 		"Feta",
-		"Goat Cheese",
 		"Cheddar",
 		"Parmesan",
 		"Ricotta",
@@ -51,8 +48,7 @@ export default function Home() {
 		"Pepper Jack",
 		"Colby",
 		"Monterey Jack",
-		"Muenster",
-		"Havarti",
+
 	];
 
 	function handleNewParticipant() {
@@ -82,15 +78,23 @@ export default function Home() {
 					<Text style={styles.buttonText}>+</Text>
 				</TouchableOpacity>
 			</View>
-			<ScrollView>
-				{participants.map((participant) => (
-					<Participant
-						key={participant}
-						name={participant}
-						onRemove={() => handleRemoveParticipant(participant)}
+			<FlatList 
+			data={participants}
+			keyExtractor={(item) => item}
+			renderItem={({item}) => (
+				<Participant
+						key={item}
+						name={item}
+						onRemove={() => handleRemoveParticipant(item)}
 					/>
-				))}
-			</ScrollView>
+					)}
+					showsVerticalScrollIndicator={false}
+					ListEmptyComponent={() => (
+						<Text style={styles.emptyList}>Nenhum participante adicionado. Quer adicionar participantes?</Text>
+					)}
+			/>
+			
+		
 		</View>
 	);
 }
