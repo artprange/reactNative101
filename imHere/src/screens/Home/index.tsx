@@ -5,6 +5,7 @@ import {
 	TouchableOpacity,
 	ScrollView,
 	FlatList,
+	Alert
 } from "react-native";
 import { styles } from "./styles";
 import { Participant } from "../../components/Participant";
@@ -52,12 +53,30 @@ export default function Home() {
 	];
 
 	function handleNewParticipant() {
-		console.log("Novo participante");
+		if(participants.includes("Bacon")){
+			return
+			Alert.alert("Eita porra!" , "Participante já adicionado!");
+			
+		}
+	
 	}
 
 	function handleRemoveParticipant(name: string) {
-		console.log("Remover participante");
+		Alert.alert("Remover participante", `Deseja remover ${name}?`,[
+			{
+				text: 'Sim',
+				onPress: () => 
+					Alert.alert("Removido", `${name} foi removido com sucesso!`)
+				},
+				{
+					text: 'Não',
+					
+				
+			}
+			
+		] )
 	}
+	
 
 	return (
 		<View style={styles.container}>
