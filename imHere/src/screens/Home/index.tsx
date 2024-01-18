@@ -11,55 +11,16 @@ import { styles } from "./styles";
 import { Participant } from "../../components/Participant";
 
 export default function Home() {
-	const participants = [
-		"Bacon",
-		"Lettuce",
-		"Tomato",
-		"Bread",
-		"Mayo",
-		"Onion",
-		"Cheese",
-		"Pepperonni",
-		"Mushrooms",
-		"Olives",
-		"Peppers",
-		"Sausage",
-		"Pineapple",
-		"Ham",
-		"Chicken",
-		"Beef",
-		"Spinach",
-		"Garlic",
-		"Basil",
-		"Oregano",
-		"Parsley",
-		"Pesto",
-		"Feta",
-		"Cheddar",
-		"Parmesan",
-		"Ricotta",
-		"Provolone",
-		"Gouda",
-		"Mozzarella",
-		"Swiss",
-		"Blue Cheese",
-		"Gorgonzola",
-		"Brie",
-		"Fontina",
-		"Pepper Jack",
-		"Colby",
-		"Monterey Jack",
-
-	];
+	const participants = ["Bacon"];
 
 	function handleNewParticipant() {
-		if(participants.includes("Bacon")){
+		if (participants.includes("Bacon")) {
 			return
-			Alert.alert("Eita porra!" , "Participante já adicionado!");
-			
+		  Alert.alert("Eita porra!", "Participante já adicionado!");
 		}
-	
-	}
+		participants.push("Lettuce")
+		console.log(participants)
+		 }
 
 	function handleRemoveParticipant(name: string) {
 		Alert.alert("Remover participante", `Deseja remover ${name}?`,[
