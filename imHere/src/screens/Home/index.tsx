@@ -43,6 +43,12 @@ export default function Home() {
 		])
 	}
 
+	function handleState(value: string) {	
+
+		setParticipantName(value);
+		console.log(participantName);
+	}
+
 
 	return (
 		<View style={styles.container}>
